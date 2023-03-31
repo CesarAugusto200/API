@@ -20,11 +20,14 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+
+    @CrossOrigin(origins = "http://127.0.0.1:5173")
     @PostMapping("/register")
     public UserModel saveUser(@RequestBody UserModel user) {
         return this.userService.saveUser(user);
     }
-    
+
+    @CrossOrigin(origins = "http://127.0.0.1:5173")
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserModel user) {
         UserModel userLogged = this.userService.loginUser(user);
